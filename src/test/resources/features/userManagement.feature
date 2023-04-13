@@ -19,18 +19,26 @@
 @login @regression
 Feature: Crater app user management
   User should be able to interact with the application on successful login
+  
+  Background: 
+  Given As a user, I am on the login page
 
   @validLogin @loginTests @smokeTest
   Scenario: Successful login
-    Given As a user, I am on the login page
     When I enter valid username and valid password
     And I click on login button
     Then I should be on user profile page
 
-  @invalidLogin @loginTests
+  @invalidUsernameLogin @loginTests
   Scenario: Invalid username login
-    Given As a user, I am on the login page
     When I enter invalid username and valid password
+    And I click on login button
+    Then I should see an error message
+    And I should not be logged in
+  
+  @invalidPasswordLogin
+  Scenario: Invalid password login
+    When I enter valid username and vinalid password
     And I click on login button
     Then I should see an error message
     And I should not be logged in
