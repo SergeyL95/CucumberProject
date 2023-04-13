@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features="./src/test/resources/features",
 		glue="step_defenitions",
-		tags="@validLogin"
+		tags="@login"
 		)
 
 public class TestRunner {
